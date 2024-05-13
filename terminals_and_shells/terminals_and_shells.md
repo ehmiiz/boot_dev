@@ -41,3 +41,19 @@ To change permissions, use chmod:
 sudo chmod -R u=rwx,g=rwx,o=rwx DIRECTORY
 ```
 
+Add execute rights on a python program to the user
+
+```
+chmod -x file.py
+```
+
+## Add path to $PATH
+
+Allows .py files to be executed from the cmdline
+
+Add to ~/.bashrc for consistency
+
+```
+export PATH=$PATH:/home/ehmiiz/git/python
+```
+
