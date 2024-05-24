@@ -136,3 +136,202 @@ for (let i = 0; i < 200; i++) {
 A foreach loop can be achived with int's and array elements
 
 Break to exit early
+
+Use a for-each (for-of in js) loop if
+
+- Iteration over entire array
+- Need ascending loop (0, 1, 2, 3)
+- Don't need access to index
+- Don't need to update the array items
+
+A for loop can be done with newer JS syntax
+
+```js
+let fruits = ['apple', 'banana', 'kiwi']
+
+for (fruit of fruits) {
+    console.log(fruit)
+}
+
+```
+
+## Objects
+
+Objects are similar to hashtables & dictionaries (pwsh, py)
+
+```js
+// object example
+function getMovieRecord(title, stars, username) {
+  const returnObject = {
+    title: `${title}`,
+    stars: `${stars}`,
+    username: `${username}`,
+    id: `${title}-${username}`,
+  } 
+  return returnObject
+}
+```
+
+To me it seems like an js object is very similar to a PSCUstomObject
+
+"the existing variable name is what I want the key in the object to be, so just use that"
+
+->
+
+```js
+const name = 'Apple'
+const radius = 2
+const color = 'red'
+
+const apple = {
+  name,
+  radius,
+  color,
+}
+
+```
+
+Nested objects works as you would imagine
+
+const object = {
+    company: wirely,
+    employees: {
+        ceo: {
+            name: luddish,
+            salary: 1,
+        }
+    }
+}
+
+object.company.employees.ceo // luddish
+
+### Optional Chaining
+
+New feature that handles accessing nested objects better
+
+```js
+// if the author or location property is missing, it returns `undentified`
+// otherwise it will return .state
+// if the new syntax is not used, a typeerror will occur
+
+return review.author?.location?.state
+```
+
+
+- An object cannot have the same key twice!
+- An object can have many nested levels, dot-sourcing the property can be done gracefully with .?
+
+### Object Methods
+
+
+
+
+```js
+// using `this` gives the method access to properties outside of its scope
+const user = {
+    firstname: 'Emil',
+    lastname: 'Larsson',
+    getFullName() {
+        return `$(this.firstname) $(this.lastname)`
+    }
+}
+
+console.log(user.getFullName())
+```
+
+Dynamically access properties using the bracket notation
+
+
+```js
+
+const desk = {
+  wood: 'maple',
+  width: 100
+}
+
+console.log(desk.wood)
+// prints "maple"
+
+console.log(desk['wood'])
+// also prints "maple"
+// if 'wood' is in a variable, desk[wood]
+```
+
+###  Arrow Functions & `this`
+
+Arrow functions perserve the `this` keyword
+
+```js
+// this does not work
+const obj = {
+    name: 'Emil',
+    lastname: 'Larsson',
+    fullName: () => { // fatarrow function using .this = null
+        return `${this.firstname} ${this.lastname}`
+    }
+}
+
+// use regular function
+const user = {
+    firstname: 'Emil',
+    lastname: 'Larsson',
+    getFullName() {
+        return `$(this.firstname) $(this.lastname)`
+    }
+}
+
+```
+
+## Errors
+
+JavaScript supports common error handling:
+
+```js
+try {
+    something()
+}
+catch (err) {
+    console.log(err.message)
+}
+finally {
+    cleanUp()
+}
+```
+
+Throwing errors can be done via the `throw` keyword
+
+```js
+// this can technically just be a string
+// it's best practice to throw an error object
+throw new Error('movie id not found')
+```
+
+## Runtime Environments
+
+Where the program runs
+
+Different JS runtimes:
+
+- Browsers
+- Node.js
+- A web worker within a browser
+- Deno.js
+- Bun
+
+
+Differences in runtime envs are:
+
+- Performance
+- APIs
+- Global object
+    - In a browser, it's `window`, in Node, it's `global`
+    - Properties and methods (members) are different from each global object
+
+### Node
+
+- Node is a JavaScript interpreter
+- Node can be used to code backend logic on a server
+- Manage Node versions with [Nvm (Node Version Manager)](https://github.com/nvm-sh/nvm)
+
+
+
