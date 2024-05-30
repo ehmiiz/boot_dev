@@ -221,6 +221,8 @@ REST has a stateless architect, meaning the server or client does not have to be
 URL Example
 
 ```
+<protocol><hostname_to_server><api version><path_to_the_api><resource>
+
 https://api.boot.dev/v1/courses_rest_api/learn-http/locations
 https://api.boot.dev/v1/courses_rest_api/learn-http/users
 https://api.boot.dev/v1/courses_rest_api/learn-http/items
